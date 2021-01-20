@@ -1,0 +1,247 @@
+https://wenku.baidu.com/view/e16abe5bf311f18583d049649b6648d7c0c70811.html
+
+
+@WSX3edc$RFV5tgb | yji | 
+
+[jenkins URL]:
+https://g11neuc.svc.eng.vmware.com/ -> NSX-T -> NSX-T_3.1_API -> Build with Parameters
+
+mailto:administrator@vsphere.local  Admin!23
+
+
+
+个人环境配置信息：
+
+NSX-T: (3.1以上版本用3.1静态模板 3.1以下版本用2.5静态模板)
+https://10.186.196.1/login.jsp
+admin / Admin!23Admin 
+
+指纹：97:47:FE:A7:C1:DA:E1:6E:7F:6C:15:4B:9A:D7:D8:4E:AE:C8:C0:DA:C1:13:F5:35:C9:32:8E:C9:EE:CB:73:42
+
+VC：	
+10.193.29.127
+administrator@vsphere.local  Admin!23
+
+ESXI:
+10.185.249.106
+root / ca$hc0w
+
+指纹：16:21:57:96:2D:5D:F0:19:FF:C1:7F:3A:61:AA:A1:72:56:E8:18:C2
+
+
+Jenkins客户端：
+admin/tong17060208130
+
+http://build-squid.eng.vmware.com/build/mts/release/bora-15179432/publish/exports/ovf/nsx-intelligence-appliance-1.0.1.0.0.15179432.ovf
+
+
+
+IP地址计算器：
+https://tool.520101.com/wangluo/ipjisuan/
+
+[在vtaas上部署环境，包括vc、ESXI、NSX-T]:
+https://vtaas.eng.vmware.com/#/deployproduct
+
+VC:16860138
+(Esxi)HOST:16850804
+NSX-T:17476191
+
+查看最新的build：(3.0 版本以上)
+https://buildweb.eng.vmware.com/ob/?page=1&product=nsx-transformers&branch=nsx-firestar-rel
+(3.2版本)
+https://buildweb.eng.vmware.com/ob/?product=nsx-transformers&branch=nsx-impactor
+(3.1版本)
+https://buildweb.eng.vmware.com/ob/?product=nsx-intelligence-appliance&branch=nsxi-highline-rel
+(3.0版本以下)
+https://buildweb.eng.vmware.com/ob/?product=nsx-transformers&branch=nsx-impactor
+
+下载虚拟机和CenteOs镜像网址：
+http://sc-prd-rdops-templates.eng.vmware.com/nimbus-templates/
+
+二  查看视频顺序
+1.Doc_NSX-T_Environment_Deployment_Guide.docx
+
+2.Doc_NSX-T_Basic_Components_Install.docx
+
+3.Doc_NSX-T_Feature_Logical_Switches.docx
+
+4.Doc_NSX-T_PACE_Guide.docx
+
+5.Doc_NSX-T_Tools_Guide.doc
+
+6.Doc_NSX-T_Firewall_Guide.docx
+
+7.Doc_NSX-T_BGP_Guide.docx
+
+8.Doc_NSX-T_IP-Prefix-Lists&Route_Maps.docx
+
+9.Doc_NSX-T_Upgrade
+
+【周洁】:
+[vcenter]：
+VC:10.186.54.245
+administrator@vsphere.local  Admin!23
+
+[ESXI]:
+host:10.161.118.253 ( root / ca$hc0w )
+
+[NSX-T]:
+https://10.193.63.150 ( admin / Admin!23Admin )
+
+许可证:W101Y-40LD1-Q8V80-02CRP-3EUMV
+
+[触发Distributed IDS/IPS证书]:054HK-D0356-480N1-02AAM-AN047
+
+administrator@vsphere.local/Admin!2
+
+各种语言：
+DE: äåæðëöøßþüÿÄÅÆÐËÖØÜ€
+FR: éàèùâêîôûëïüçœÉÀÈÙÂÊÎÔÛËÏÜÇŒŸ
+SC: ???????
+TW: ????????????????????
+JA: ???11aa????
+KO: ????????? ??
+ES: áéíñóúüÁÉÍÑÓÚÜ¿¡
+PT: ãÃçÇòÒóÓõÕ
+IT: àèìòùÀÈÌÒÙ
+RU: ??????????????
+ES: ñññññññññññ
+CS:Preložit
+DA:Oversættelse
+PL:Tlumacz
+SV:översättning
+TR:çeviri
+?Œé?B?Üßàù?A???ªñ
+
+
+
+[在vtaas上部署环境，包括vc、ESXI、NSX-T]:
+
+https://vtaas.eng.vmware.com/#/deployproduct
+
+在Jenkins-->NSX-T--->NSX-T_3.1_API-->configure中查看相关IP信息：
+
+[季洋]:
+
+[VC_IP]:10.182.187.47
+administrator@vsphere.local / Admin!23 
+16860138 | 10.182.187.47 （ administrator@vsphere.local / Admin!23 )
+
+[ESXI_IP]:10.185.13.186
+(root / ca$hc0w ) 
+16850804 | 10.185.13.186 （ root / ca$hc0w ) 
+
+[Manager_Service_IP/NSX-T]:10.78.94.248
+(admin / Admin!23Admin)
+17221001 | https://10.78.94.248/login.jsp（ admin / Admin!23Admin )
+
+1.Add License
+
+2.Add Computer Manager
+
+3.Add Transport Zone
+
+4.Add Uplink Profile
+
+5. IP Pool
+
+6.Host Transport Node
+
+7.Edge Transport Node
+
+8.Edge Cluster
+
+【jenkins URL】https://g11neuc.svc.eng.vmware.com/
+
+1. 【node connect】Build Executor Status -> NSX-T_API_Node -> [Launch]Button -> Save File -> 找到已下载的"slave-agent.jnlp" -> 双击启动(保证本地已安装及配置JDK) -> 保证jenkins agent为[Connected]状态
+
+2. 【build job】NSX-T{找到job label} -> NSX-T_3.1_API -> Build with Parameters -> 输入已搭建好的 VC、EXSI、Manager_Server / IP地址 然后选择 所要跑的语言 -> Build
+
+3、git源码：https://gitlab.eng.vmware.com/g11n/nsbu/nsx-t-api-auto
+
+【vc】administrator@vsphere.local  Admin!23
+【EXSI】root ca$hc0w
+【Manager Server】admin Admin!23Admin
+
+@WSX3edc$RFV5tgb
+
+1. Jenkins Build(将gitlab上的源码下载到Node所链接机器的对应目录[默认c:\jenkins/workspace], 并将执行语言和环境参数作为变量传入jenkins job的pipeline中)
+
+2. 用maven 命令编译工程，并将jenkins中的参数通过pom.xml传入testng.xml文件中
+
+3.根据testng.xml @Test的配置顺序 结合 @BeforeSuite @BeforeClass @Test @AfterClass @AfterSuite 执行工程Code
+
+
+
+本地服务器资料：
+\\10.100.70.98
+administrator
+ca$hc0w
+\\10.100.70.97\nsbu\NSX-T
+自动化学习资料：
+\\10.100.70.97\TeamShare\0-Training\Automation Training
+
+Navicat:
+主机：localhost
+端口：3306
+用户名：root
+密码：root123
+
+
+
+
+1、idea安装Git
+2、Git提交代码至远程仓库
+3、idea怎么将代码提交至远程仓库
+第一步 开发者提交代码
+第二步 Jenkins获取远程代码
+第三部 自动将源代码实现打包
+第四步 执行Shell脚本
+
+
+
+
+
+
+
+node ("${NODE}") {
+	stage('Prepare Code') { // for display purposes
+		dir('tools') {
+			git(
+				url: 'git@gitlab.eng.vmware.com:g11n/euc/common/tools.git',
+				credentialsId: '37fade59-a90a-4f0f-9516-8f56d6a3706a',
+				branch: 'master'
+			)
+		}
+		dir('common-java') {
+			git(
+				url: 'git@gitlab.eng.vmware.com:g11n/euc/common/common-java.git',
+				credentialsId: '37fade59-a90a-4f0f-9516-8f56d6a3706a',
+				branch: 'master'
+			)
+			// build code
+			bat("../tools/maven/bin/mvn clean package")
+		}
+		dir('nsx-t-api-auto') {
+			git(
+				url: 'git@gitlab.eng.vmware.com:g11n/nsbu/nsx-t-api-auto.git',
+				credentialsId: '37fade59-a90a-4f0f-9516-8f56d6a3706a',
+				branch: 'master'
+			)
+			bat("../tools/maven/bin/mvn -f pom.xml test -Dtestng.xmlfile=testng.xml -Dtestng.vcip=${env.VC_IP} -Dtestng.esxiip=${env.ESXI_IP} -Dtestng.managerserver=${env.Manager_Service_IP} -Dtestng.language=${env.LANGUAGE}")
+			
+		}
+	}
+
+
+
+import java.util.*;
+
+      class Interval {
+        int start;
+        int end;
+      }
+
+    
+
+	
