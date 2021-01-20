@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd"
+>
+    <bean id="userServlet" class="edu.xalead.UserServlet" scope="singleton">
+        <property name="userService" ref="service"/>
+    </bean>
+    <bean id="service" class="edu.xalead.UserService" autowire="byName">
+        <!--<property name="userDao" ref="userDao"/>-->
+    </bean>
+    <!--<aop:aspectj-autoproxy/>-->
+    <bean  class="edu.xalead.UserDao" id="userDao" >
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/cms"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+    <bean id="user" class="edu.xalead.User">
+        <!--<constructor-arg value="1111"/>-->
+        <!--<constructor-arg value="zhangsan"/>-->
+        <!--<constructor-arg value="20"/>-->
+        <!--<constructor-arg value="M"/>-->
+        <property name="photos">
+            <list>
+                <value>1.jpg</value>
+                <value>2.jpg</value>
+                <value>3.jpg</value>
+                <value>4.jpg</value>
+                <value>5.jpg</value>
+            </list>
+        </property>
+        <property name="friends">
+            <array>
+                <value>zhangsan</value>
+                <value>李四</value>
+                <value>wangmazi</value>
+                <value>zhaoliu</value>
+                <value>liqi</value>
+            </array>
+        </property>
+        <property name="money">
+            <set>
+                <value>美元</value>
+                <value>人命币</value>
+                <value>欧元</value>
+                <value>日元</value>
+                <value>英镑</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="A" value="AAA"></entry>
+                <entry key="B" value="BBB"></entry>
+                <entry key="C" value="CCC"></entry>
+            </map>
+        </property>
+        <property name="prop">
+            <props>
+                <prop key="4432">42341231</prop>
+                <prop key="54353">5464564</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="factorybean" class="edu.xalead.FactoryBean"></bean>
+    <bean id="myBean" factory-bean="factorybean" factory-method="createUser"/>
+
+    <!--利用静态工厂bean方法创建实例
+    得到是工厂方法返回的对象-->
+    <bean id="factory1" class="edu.xalead.FactoryBean" factory-method="createStaticUser"/>
+</beans>
